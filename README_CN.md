@@ -1,5 +1,9 @@
 # Mediasoup.SFU 
 
+一个基于C++17开发的高性能SFU（Selective Forwarding Unit）服务器，采用mediasoup架构思想，重写了原有的JavaScript层以提升性能。服务器使用Oatpp作为应用层Web框架，通过FlatBuffers实现应用层与Worker进程间的高性能通信。底层集成libwebrtc处理音视频流，支持单进程与多进程运行模式。具备WebRTC信令处理、房间管理、媒体路由转发等核心功能，适用于实时音视频通信场景，具有高可扩展性和可维护性。
+
+源自：[https://github.com/ouxianghui/mediasoup-server](https://github.com/ouxianghui/mediasoup-server)
+
 [English](README.md) | [简体中文](README_CN.md)
 
 基于 Mediasoup 的 SFU 服务器：
