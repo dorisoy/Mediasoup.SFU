@@ -1,0 +1,135 @@
+{
+	"domain": "127.0.0.1",
+	"https": {
+		"listenIp": "127.0.0.1",
+		"listenPort": 4443,
+		"tls": {
+			"cert": "/Users/jackie.ou/Desktop/Research/dev/mediasoup-server/sfu/cert/test_cert.crt",
+			"key": "/Users/jackie.ou/Desktop/Research/dev/mediasoup-server/sfu/cert/test_key.pem"
+		}
+	},
+	"mediasoup": {
+		"numWorkers": 2,
+		"useWebRtcServer": false,
+		"multiprocess": false,
+		"workerPath": "/Users/jackie.ou/Desktop/Research/dev/mediasoup/worker/out/Release/mediasoup-worker",
+		"workerSettings": {
+			"dtlsCertificateFile": "/Users/jackie.ou/Desktop/Research/dev/mediasoup-server/sfu/cert/test_cert.crt",
+			"dtlsPrivateKeyFile":  "/Users/jackie.ou/Desktop/Research/dev/mediasoup-server/sfu/cert/test_key.pem",
+			"logLevel": "debug",
+			"logTags": [
+				"info",
+				"ice",
+				"dtls",
+				"rtp",
+				"srtp",
+				"rtcp",
+				"rtx",
+				"bwe",
+				"score",
+				"simulcast",
+				"svc",
+				"sctp"
+			]
+		}, 
+		"routerOptions": {
+			"mediaCodecs": [{
+					"kind": "audio",
+					"mimeType": "audio/opus",
+					"clockRate": 48000,
+					"channels": 2
+				},
+				{
+					"kind": "video",
+					"mimeType": "video/VP8",
+					"clockRate": 90000,
+					"parameters": {
+						"x-google-start-bitrate": 1000
+					}
+				},
+				{
+					"kind": "video",
+					"mimeType": "video/VP9",
+					"clockRate": 90000,
+					"parameters": {
+						"profile-id": 2,
+						"x-google-start-bitrate": 1000
+					}
+				},
+				{
+					"kind": "video",
+					"mimeType": "video/h264",
+					"clockRate": 90000,
+					"parameters": {
+						"packetization-mode": 1,
+						"profile-level-id": "4d0032",
+						"level-asymmetry-allowed": 1,
+						"x-google-start-bitrate": 1000
+					}
+				},
+				{
+					"kind": "video",
+					"mimeType": "video/h264",
+					"clockRate": 90000,
+					"parameters": {
+						"packetization-mode": 1,
+						"profile-level-id": "42e01f",
+						"level-asymmetry-allowed": 1,
+						"x-google-start-bitrate": 1000
+					}
+				}
+			]
+		},
+		"webRtcServerOptions": {
+			"listenInfos": [{
+					"protocol": "udp",
+					"ip": "127.0.0.1",
+					"announcedAddress": "127.0.0.1",
+					"port": 44447
+				},
+				{
+					"protocol": "tcp",
+					"ip": "127.0.0.1",
+					"announcedAddress": "127.0.0.1",
+					"port": 44447
+				}
+			]
+		},
+		"webRtcTransportOptions": {
+			"listenInfos": [{
+				"protocol": "udp",
+				"ip": "127.0.0.1",
+				"announcedAddress": "127.0.0.1",
+				"portRange": {
+					"min": 40000,
+					"max": 49999
+				}
+			},
+			{
+				"protocol": "tcp",
+				"ip": "127.0.0.1",
+				"announcedAddress": "127.0.0.1",
+				"portRange": {
+					"min": 40000,
+					"max": 49999
+				}
+			}],
+			"initialAvailableOutgoingBitrate": 1300000,
+			"minimumAvailableOutgoingBitrate": 600000,
+			"maxSctpMessageSize": 262144,
+			"maxIncomingBitrate": 2500000
+		},
+		"plainTransportOptions": {
+			"listenInfo": {
+				"protocol": "udp",
+				"ip": "0.0.0.0",
+				"announcedAddress": "127.0.0.1",
+				"portRange": {
+					"min": 40000,
+					"max": 49999
+				}
+			},
+			"maxSctpMessageSize": 262144
+		}
+	}
+}
